@@ -1,0 +1,52 @@
+#imgLogo {
+    width: 90px;
+    height: 90px;
+  }
+
+  body{
+    background: linear-gradient(to bottom, #33aedf, #030e31 );
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.avatar{
+    max-height: 500px;
+}
+a {
+    text-decoration: none;
+    color: white;
+    background: none;
+    border: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+.like{
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.btnlike{
+    border: none; background: none;
+}
+
+.event{
+    background-color: aliceblue;
+}
+
+nav{
+    color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
