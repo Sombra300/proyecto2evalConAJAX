@@ -43,4 +43,5 @@
 
     <a href="{{route('events.edit', $event->id)}}">editar evento</a>
 @endif
+<script src="{{asset("js/eventos.js")}}"></script>
 @endsection('body')

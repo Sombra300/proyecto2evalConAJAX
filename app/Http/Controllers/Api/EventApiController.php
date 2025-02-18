@@ -39,16 +39,19 @@ class EventApiController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        $event=new Event();
-        $event->name=$request->input('name');
-        $event->description=$request->input('description');
-        $event->date=$request->input('date');
-        $event->hour=$request->input('hour');
-        $event->type=$request->input('type');
-        $event->tags=$request->input('tags');
-        $event->visible=$request->input('visible');
-        $event->save();
-        return redirect()->route('events.show', $event->id);
+        
+        $event->update([
+            'name'=>$request->input('name'),
+            'description'=>$request->input('description'),
+            'location'=>$request->input('location'),
+            'type'=>$request->input('type'),
+            'date'=>$request->input('date'),
+            'hour'=>$request->input('hour'),
+            'tags'=>$request->input('tags'),
+            'visible'=>$request->input('visible'),
+        ]);
+        return response()->json(['message' => 'Solicitud PUT recibida'], 200);
+       // return response()->json($event);
     }
 
     /**
@@ -56,7 +59,11 @@ class EventApiController extends Controller
      */
     public function destroy(Event $event)
     {
-        $event->delete();
-        return redirect()->route('events.index');
+       try{
+            $event->delete();
+            return response()->json(['mensaje'=>'eliminado'],200);
+       }catch(\Exception $e){
+        return response()->json(['mensaje'=>'no se ha podido eliminar',500]);
+       }
     }
 }

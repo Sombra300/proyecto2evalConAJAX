@@ -3,6 +3,7 @@
 Proximos eventos
 @endsection('titulo')
 @section('estilo')
+<link rel="stylesheet" href="{{ asset('css/evento.css') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection('estilo')
 @section('body')
