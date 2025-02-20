@@ -1,10 +1,14 @@
-#imgLogo {
-    width: 90px;
-    height: 90px;
-  }
+html {
+    scroll-behavior: smooth;
+}
 
-  body{
+nav{
+    color: white;
+}
+
+body{
     background: linear-gradient(to bottom, #33aedf, #030e31 );
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -12,9 +16,11 @@
     text-align: center;
     color: white;
 }
-.avatar{
-    max-height: 500px;
+
+h5{
+    color: black;
 }
+
 a {
     text-decoration: none;
     color: white;
@@ -24,10 +30,18 @@ a {
     &:hover,
     &:focus,
     &:active {
-      text-decoration: none;
-      color: white;
+        text-decoration: none;
+        color: white;
     }
-  }
+}
+
+li{
+    list-style: none;
+}
+
+.avatar{
+    max-height: 500px;
+}
 
 .like{
     max-width: 50px;
@@ -42,11 +56,7 @@ a {
     background-color: aliceblue;
 }
 
-nav{
-    color: white;
+#imgLogo {
+    width: 90px;
+    height: 90px;
 }
-
-html {
-    scroll-behavior: smooth;
-  }
-

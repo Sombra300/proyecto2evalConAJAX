@@ -150,13 +150,38 @@ function mostrar(event){
                             <h2 class="datoEvento">${event.description}</h2>
                             <h2 class="datoEvento">${event.location}</h2>
                             <h2 class="datoEvento">${event.type}</h2>
-                            <h2class="datoEvento">${event.tags}</h2>
+                            <h2 class="datoEvento">${event.tags}</h2>
                             <div id="divNuev">
 `
 const divAux=document.getElementById('divNuev')
-const divtemp=document.createElement('div')
+const divtemp=document.createElement('h2')
+divtemp.classList.add("datoEvento");
+
 divAux.appendChild(divtemp)
 
+function getTimeRemaining(event) {
+    const eventDateTime = new Date(`${event.date}T${event.hour}`).getTime()
+    const now = new Date().getTime()
+    const timeDiff = eventDateTime - now
+
+    if (timeDiff <= 0) {
+        return "Ya ha ocurrido"
+    }
+
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60))
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000)
+
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`
+
+}
+
+
+setInterval(() => {
+    const tiempoFaltante = getTimeRemaining(event);
+    divtemp.innerText=tiempoFaltante
+}, 1000);
 
 const boton=document.createElement('button')
 boton.setAttribute("title", "Like event")
@@ -212,7 +237,7 @@ boton.addEventListener('click', ()=> {
 function editar(event){
 
 
-    divPadre.innerHTML=`<form action=""class="">
+    divPadre.innerHTML=`<form action=""class="form-container">
     <label for="name">Nombre</label>
     <input type="text" id="name" name="name" value="${event.name}">
     <br>
@@ -262,7 +287,7 @@ const labelvisible=document.getElementById('visible')
         time:  labeltime.value,
         type:  labeltype.value,
         tags:  labeltags.value,
-        visible:  labelvisible.value 
+        visible:  labelvisible.value
     }
 
 

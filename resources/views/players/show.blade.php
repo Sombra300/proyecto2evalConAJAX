@@ -23,17 +23,6 @@ Thitch: {{$player->twitch}} <br>
 <br><br>
 @if (Auth::user()->rol=='admin')
 
-<div>
-</div>
-<div>
-    <form action="{{route('', )}}" method="post">
-        @csrf
-        <button type="submit"></button>
-    </form>
-</div>
-
-
-
     <form action="{{route('players.destroy', ['player'=>$player->id])}}" method="post">
         @csrf
         @method('delete')
